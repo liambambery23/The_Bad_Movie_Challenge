@@ -1,0 +1,26 @@
+{
+  "name": "bad_movie",
+  "version": "1.0.0",
+  "description": "a site dedicated to challenging your friends to watch bad movies or donate to charity",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifeasome/Project2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ifeasome/Project2/issues"
+  },
+  "homepage": "https://github.com/ifeasome/Project2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "msql": "^1.0.3",
+    "sequelize": "^6.3.5"
+  }
+}
