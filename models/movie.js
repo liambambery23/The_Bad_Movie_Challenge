@@ -1,6 +1,6 @@
 //creates the User model
 module.exports = function(sequelize, DataTypes) {
-    let Movies = sequelize.define("Movies", {
+    let Movie = sequelize.define("Movie", {
         apiReferenceId: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -8,16 +8,19 @@ module.exports = function(sequelize, DataTypes) {
         title: {
             type: DataTypes.STRING
         }
+    },
+    {
+        freezeTableName: true
     });
 
-    Movies.associate = function(models) {
-        Movies.hasMany(models.Challenges, {
+    Movie.associate = function(models) {
+        Movie.hasMany(models.Challenge, {
             onDelete: "cascade"
         });
-        Movies.hasMany(models.Watched, {
+        Movie.hasMany(models.Watched, {
             onDelete: "cascade"
         });
     }
 
-    return Movies;
+    return Movie;
 }

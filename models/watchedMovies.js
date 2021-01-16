@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     Watched.associate = function(models) {
 
         // Watched contain a reference to a movie
-        Watched.belongsTo(models.Movies, {
+        Watched.belongsTo(models.Movie, {
             foreignKey: {
                 allowNull: false
             }
