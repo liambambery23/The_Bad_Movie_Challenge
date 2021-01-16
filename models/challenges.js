@@ -3,10 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     let Challenges = sequelize.define("Challenges", {
 
     });
+
     Challenges.associate = function(models) {
 
         // Challenges contain a reference to a movie
-        Challenges.hasOne(models.Movies, {
+        Challenges.belongsTo(models.Movies, {
             foreignKey: {
                 allowNull: false
             }
