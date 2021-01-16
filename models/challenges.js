@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     Challenges.associate = function(models) {
 
         // Challenges contain a reference to a movie
-        Challenges.hasOne(models.movies, {
+        Challenges.hasOne(models.Movies, {
             foreignKey: {
                 allowNull: false
             }
