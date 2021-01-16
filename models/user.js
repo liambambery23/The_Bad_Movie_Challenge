@@ -21,7 +21,12 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        User.hasMany(models.Challenges);
+        User.hasMany(models.Challenges, {
+            onDelete: "cascade"
+        });
+        User.hasMany(models.Watched, {
+            onDelete: "cascade"
+        });
     }
 
     return User;

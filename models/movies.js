@@ -10,5 +10,14 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
+    Movies.associate = function(models) {
+        Movies.hasMany(models.Challenges, {
+            onDelete: "cascade"
+        });
+        Movies.hasMany(models.Watched, {
+            onDelete: "cascade"
+        });
+    }
+
     return Movies;
 }
