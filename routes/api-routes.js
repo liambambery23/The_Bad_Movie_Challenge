@@ -1,4 +1,4 @@
-// Requiring our models and passport as we've configured it
+// Requiring our models and passport as we've configured it.
 let db = require("../models");
 let passport = require("../config/passport");
 
