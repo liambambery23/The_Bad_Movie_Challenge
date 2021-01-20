@@ -9,6 +9,7 @@
     "node": true
   },
   "extends": "prettier",
+  "plugins": ["prettier"],
   "parser": "babel-eslint",
   "rules": {
     "array-callback-return": "error",
