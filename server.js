@@ -7,11 +7,17 @@
 let express = require("express");
 var session = require("express-session");
 let passport = require("./config/passport");
+let exphbs = require("express-handlebars");
 
 // Sets up the Express App
 // =============================================================
 let app = express();
 let PORT = process.env.PORT || 8080;
+
+// Sets up the view engine
+// =============================================================
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
 // Sets up the Express app to handle data parsing
@@ -33,6 +39,7 @@ app.use(passport.session());
 // =============================================================
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
+require("./controllers/movies_controller")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
