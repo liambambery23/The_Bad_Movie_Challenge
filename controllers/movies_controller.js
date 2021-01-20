@@ -1,28 +1,21 @@
-// Dependencies 
+// Dependencies
 // =======================================
-let express = require("express");
-let router = express.Router();
+// db model import
+let movie = require("../models/movie");
 
-// movie model import
-let movie = require("../models");
+module.exports = function (app) {
 
-// Route set-up
-router.get("/", function(req, res) {
-  // get function from sequelize 
-});
+  app.post("/api/movies", function(req, res) {
+    // post function from sequelize
+  });
 
-router.post("/api/movies", function(req, res) {
-  
-  // post function from sequelize 
-});
+  app.put("/api/movies/:id", function(req, res) {
+    // put function from sequelize
+  });
 
-router.put("/api/movies/:id", function(req, res) {
-  // put function from sequelize
-});
+  app.delete("/api/movies/:id", function(req, res) {
+    // delete function from sequlize
+  });
 
-router.delete("/api/movies/:id", function(req, res) {
-  // delete function from sequlize
-});
+}
 
-// Export routes for server.js to use.
-module.exports = router;
