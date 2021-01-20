@@ -4,15 +4,15 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
-let express = require("express");
-var session = require("express-session");
-let passport = require("./config/passport");
-let exphbs = require("express-handlebars");
+const express = require("express");
+const session = require("express-session");
+const passport = require("./config/passport");
+const exphbs = require("express-handlebars");
 
 // Sets up the Express App
 // =============================================================
-let app = express();
-let PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // Sets up the view engine
 // =============================================================
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Import our db models
-let db = require("./models");
+const db = require("./models");
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
@@ -43,8 +43,8 @@ require("./controllers/movies_controller")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
   });
 });
