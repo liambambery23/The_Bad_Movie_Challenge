@@ -1,1 +1,1 @@
-# Project2
+# The Bad Movie Challenge
