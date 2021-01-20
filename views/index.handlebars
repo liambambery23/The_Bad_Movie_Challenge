@@ -1,0 +1,50 @@
+<h1>Index</h1>
+
+        <div class="row">
+    <div class="search-container col-sm-12 col-md-12 col-lg-6">
+      <h5 id="search-instructions">Search for bad movies!</h5>
+      <form class="form-inline">
+        <input id="search"
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="search-btn btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+
+      <div class="media col-sm-12 col-md-10 col-lg-8" id="OnDeck">
+        <img src="test.jpeg" class="align-self-center mr-3" alt="No Poster">
+        <div class="media-body">
+          <h5 class="mt-0">Center-aligned media</h5>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+          <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </div>
+      </div>
+
+        <div class="row" id="watch-lists">
+  <div class="card col-sm-12 col-md-6 col-lg-4" id="watched">
+    <div class="card-header">
+        Watched
+    </div>
+    <ul class="list-group list-group-flush">
+        {{#each watched}}
+            <li class="list-group-item">{{this}}</li>
+        {{/each}}
+    </ul>
+  </div>
+    <div class="card col-sm-12 col-md-6 col-lg-4" id="not-watched">
+      <div class="card-header">
+        Not Watched
+      </div>
+      <ul class="list-group list-group-flush">
+       {{#each unwatched}}
+            <li class="list-group-item">{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
