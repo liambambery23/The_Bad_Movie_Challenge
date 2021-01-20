@@ -10,7 +10,7 @@ module.exports = function (app) {
   });
 
   app.put("/api/movies/:id", function(req, res) {
-    // put function from sequelize
+   //
   });
 
   app.delete("/api/movies/:id", function(req, res) {
