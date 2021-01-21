@@ -11,7 +11,7 @@ module.exports = function (app) {
     if (!req.user) {
       res.redirect("/login");
     } else {
-      
+
       res.render("index", {});
     }
   });
