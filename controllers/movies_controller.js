@@ -6,7 +6,13 @@ const movie = require("../models/movie");
 module.exports = function (app) {
 
   app.post("/api/movies", (req, res) => {
-    // post function from sequelize
+    let movieInsert = {
+      apiReference: req.body.apiReference,
+      title: req.body.title
+    }
+    movie.create(movieInsert).then((response) => {
+      res.json(response);
+    })
   });
 
   app.put("/api/movies/:id", (req, res) => {
