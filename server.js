@@ -16,7 +16,16 @@ const PORT = process.env.PORT || 8080;
 
 // Sets up the view engine
 // =============================================================
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+  defaultLayout: "main",
+  helpers: {
+    section: function (name, options) {
+      if (!this.sections) {this.sections = {};}
+      this.sections[name] = options.fn(this);
+      return null;
+    }
+  }
+}));
 app.set("view engine", "handlebars");
 
 
@@ -38,7 +47,7 @@ app.use(passport.session());
 // Routes
 // =============================================================
 require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
+require("./controllers/user")(app);
 require("./controllers/movies_controller")(app);
 
 // Syncing our sequelize models and then starting our Express app
