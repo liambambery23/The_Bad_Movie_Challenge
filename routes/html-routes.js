@@ -7,12 +7,13 @@
 module.exports = function (app) {
 
   app.get("/", (req, res) => {
+    const scripts = [{ script: "/js/index.js"}];
     // If the user is not logged in send them to login
     if (!req.user) {
       res.redirect("/login");
     } else {
 
-      res.render("index", {});
+      res.render("index", {scripts: scripts});
     }
   });
 

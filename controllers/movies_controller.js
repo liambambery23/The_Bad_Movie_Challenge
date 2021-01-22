@@ -10,6 +10,7 @@ const posterSize = 1;
 module.exports = function (app) {
 
   app.post("/api/movie", async (req, res) => {
+    console.log("Hello?");
     const title = req.body.title.replace(" ", "+");
     const movieInfo = await getMovieByTitle(title);
     if(basePath === ""){
