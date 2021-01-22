@@ -7,6 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     title: {
       type: DataTypes.STRING
+    },
+    overview: {
+      type: DataTypes.TEXT
+    },
+    posterPath: {
+      type: DataTypes.STRING
     }
   },
   {
