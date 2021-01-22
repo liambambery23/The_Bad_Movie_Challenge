@@ -17,7 +17,7 @@ module.exports = function (app) {
   });
 
   app.get("/login", (req, res) => {
-    let scripts = [{ script: '/js/login.js'}];
+    const scripts = [{ script: "/js/login.js"}];
     // If the user is already logged in send them to index
     if (req.user) {
       res.redirect("/");
@@ -27,7 +27,7 @@ module.exports = function (app) {
   });
 
   app.get("/register", (req, res) => {
-    let scripts = [{ script: '/js/register.js'}];
+    const scripts = [{ script: "/js/register.js"}];
     // If the user is already logged in send them to index
     if (req.user) {
       res.redirect("/");

@@ -20,7 +20,7 @@ app.engine("handlebars", exphbs({
   defaultLayout: "main",
   helpers: {
     section: function (name, options) {
-      if (!this.sections) this.sections = {};
+      if (!this.sections) {this.sections = {};}
       this.sections[name] = options.fn(this);
       return null;
     }
