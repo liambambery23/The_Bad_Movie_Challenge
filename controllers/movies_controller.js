@@ -28,7 +28,7 @@ module.exports = function (app) {
     // Add the movie to our DB
     addToMovieTable(movie);
 
-    res.json(movie);
+    res.render("index", { movie: movie });
   });
 
 };
