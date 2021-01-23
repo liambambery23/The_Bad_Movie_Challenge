@@ -9,20 +9,16 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true
   });
 
-  Watched.associate = function(models) {
+  Watched.associate = function (models) {
 
-    // Watched contain a reference to a movie
-    Watched.belongsTo(models.Movie, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    // Watched belong to a User model
     Watched.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "userId"
     });
+
+    Watched.belongsTo(models.Movie, {
+      foreignKey: "movieId"
+    });
+
   };
 
   return Watched;
