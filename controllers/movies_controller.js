@@ -88,5 +88,18 @@ async function addToMovieTable(movie, user) {
         console.log("Updated "+ result + " rows");
       });
     });
+  } else {
+    db.User.update(
+      {
+        movieOnDeckId: result.id
+      },
+      {
+        where: {
+          id: user
+        }
+      }
+    ).then((result) => {
+      console.log("Updated "+ result + " rows");
+    });
   }
 }

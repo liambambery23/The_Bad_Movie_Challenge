@@ -8,7 +8,6 @@ module.exports = function (app) {
     if (!req.user) {
       res.redirect("/login");
     } else {
-      console.log("page loaded");
       const userMovieOnDeck = await db.User.findOne({
         where: {
           id: req.user.id
@@ -17,14 +16,14 @@ module.exports = function (app) {
       }).then((result) => {
         return result.dataValues.Movie;
       });
+      // If the user has a movie on deck send that object to the view
       if(userMovieOnDeck){
         const movieOnDeck = {
+          id: userMovieOnDeck.id,
           title: userMovieOnDeck.title,
           posterPath: userMovieOnDeck.posterPath,
           overview: userMovieOnDeck.overview
         };
-        console.log("Sending to index");
-        console.log(movieOnDeck);
         res.render("index",
           {
             scripts: scripts,

@@ -13,14 +13,13 @@
 </div>
 
 {{#if movie}}
-<div class="media col-sm-12 col-md-10 col-lg-8" id="OnDeck">
+<div class="media col-sm-12 col-md-10 col-lg-8" id="OnDeck" data-movieId="{{movie.id}}">
   <img src="{{movie.posterPath}}" class="align-self-center mr-3" alt="No Poster">
   <div class="media-body">
     <h5 class="mt-0">{{movie.title}}</h5>
     <p>{{movie.overview}}</p>
   </div>
 </div>
-{{/if}}
 
 <div class="row" id="buttons">
   <div class="col-1" id="toWatch" id="toChallenge">
@@ -46,6 +45,7 @@
     </button>
   </div>
 </div>
+{{/if}}
 
 <div class="row" id="watch-lists">
   <div class="card col-sm-12 col-md-6 col-lg-4" id="watched">
