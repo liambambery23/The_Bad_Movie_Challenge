@@ -20,10 +20,10 @@ $(".search-btn").click((event) => {
 $(".towatch").click((event) => {
   event.preventDefault();
 
-})
+});
 
 $(".tochallenge").click((event) => {
   event.preventDefault();
-  
-})
+
+});
 //jquery for buttons  
