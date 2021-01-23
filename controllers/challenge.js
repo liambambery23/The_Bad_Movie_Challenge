@@ -2,7 +2,7 @@ const db = require("../models/");
 
 
 module.exports = function (app) {
-  app.post("/api/challenge/", (req) => {
+  app.post("/api/challenged/", (req) => {
     db.Challenge.create({
       userId: req.user.id,
       movieId: req.body.movieId
@@ -11,7 +11,7 @@ module.exports = function (app) {
     });
   });
 
-  app.delete("/api/challenge/:id", (req) => {
+  app.delete("/api/challenged/:id", (req) => {
     const movieId = req.params.id;
     const userId = req.user.id;
 
