@@ -52,6 +52,8 @@ app.use(passport.session());
 require("./routes/html-routes")(app);
 require("./controllers/user")(app);
 require("./controllers/movies_controller")(app);
+require("./controllers/watchedMovies")(app);
+require("./controllers/challenge")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
