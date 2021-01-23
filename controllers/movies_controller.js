@@ -10,10 +10,11 @@ const posterSize = 1;
 module.exports = function (app) {
 
   app.post("/api/movie", async (req, res) => {
-    console.log("Hello?");
+    const user = req.user.id;
     const title = req.body.title.replace(" ", "+");
     const movieInfo = await getMovieByTitle(title);
-    if(basePath === ""){
+    if (basePath === "") {
+      console.log("Setting up base path for poster images");
       const config = await getBasePath();
       basePath = config.basePath;
       posterSizes = config.posterSizes;
@@ -26,9 +27,9 @@ module.exports = function (app) {
       posterPath: basePath + posterSizes[posterSize] + movieInfo.data.results[0].poster_path
     };
     // Add the movie to our DB
-    addToMovieTable(movie);
+    await addToMovieTable(movie, user);
 
-    res.render("index", { movie: movie });
+    res.json(movie);
   });
 
 };
@@ -46,20 +47,6 @@ async function getMovieByTitle(title) {
 
   return movie;
 }
-
-// Calls the TMDB api with a movie ID and returns the movie object
-// async function getMovieById(id) {
-//   const apiKey = process.env.TMDB_API_KEY;
-//   const movie = await axios.get("https://api.themoviedb.org/3/movie/" + id + "?api_key=" + apiKey)
-//     .then((movieResponse) => {
-//       return movieResponse;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-
-//   return movie;
-// }
 
 // Calls the TMDB api to get the base url and poster sizes for images and returns a config object
 async function getBasePath() {
@@ -80,13 +67,26 @@ async function getBasePath() {
 }
 
 // Adds movie to DB if movie does not already exist
-async function addToMovieTable(movie) {
+async function addToMovieTable(movie, user) {
   const result = await db.Movie.findOne({
     where: {
       apiReferenceId: movie.apiReferenceId
     }
   });
   if (!result) {
-    db.Movie.create(movie);
+    db.Movie.create(movie).then((response) => {
+      db.User.update(
+        {
+          movieOnDeckId: response.id
+        },
+        {
+          where: {
+            id: user
+          }
+        }
+      ).then((result) => {
+        console.log("Updated "+ result + " rows");
+      });
+    });
   }
 }

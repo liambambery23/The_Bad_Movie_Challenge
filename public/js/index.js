@@ -1,5 +1,4 @@
 $(".search-btn").click((event) => {
-  console.log("clicking?");
   event.preventDefault();
   const SearchVal = $("#search").val();
 
@@ -12,7 +11,7 @@ $(".search-btn").click((event) => {
     data: title
   }).then(
     () => {
-      location.reload();
+      location.assign("/");
     }
   );
 });
