@@ -14,9 +14,12 @@ Body {
 }
 
 .navbar {
-    background-color: rgba(245, 245, 245, 0.75);;
+    background-color: rgba(245, 245, 245, 0.75);
 }
 
+a {
+    color:black;
+}
 .h1 {
     font-family: 'Staatliches', cursive;
 }
@@ -26,7 +29,7 @@ h5 {
 }
 
 #search-instructions {
-    color: black;
+  color: black;
   text-shadow: -1px -1px 0 White, 1px -1px 0 White, -1px 1px 0 White, 1px 1px 0 White;
 }
 
