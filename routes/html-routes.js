@@ -19,6 +19,7 @@ module.exports = function (app) {
       // If the user has a movie on deck send that object to the view
       if(userMovieOnDeck){
         const movieOnDeck = {
+          id: userMovieOnDeck.id,
           title: userMovieOnDeck.title,
           posterPath: userMovieOnDeck.posterPath,
           overview: userMovieOnDeck.overview
