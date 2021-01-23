@@ -15,15 +15,30 @@ $(".search-btn").click((event) => {
     }
   );
 });
-
 //put and delete request
-$(".towatch").click((event) => {
+$("#toWatched").click((event) => {
   event.preventDefault();
-
+  const movieId = $("#onDeck").data("movieid");
+  $.ajax("/api/watched", {
+    type: "POST",
+    data: {movieId}
+  }).then(
+    () => {
+      location.assign("/");
+    }
+  );
 });
 
-$(".tochallenge").click((event) => {
+$("#toChallenged").click((event) => {
   event.preventDefault();
-
+  const movieId = $("#onDeck").data("movieid");
+  $.ajax("/api/challenged", {
+    type: "POST",
+    data: {movieId}
+  }).then(
+    () => {
+      location.assign("/");
+    }
+  );
 });
 //jquery for buttons  
