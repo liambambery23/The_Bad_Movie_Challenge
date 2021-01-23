@@ -1,13 +1,10 @@
-// Dependencies
-// =======================================
-// db model import
 const db = require("../models/");
 
 
 module.exports = function (app) {
-  app.post("/api/watched/", (req, res) => {
+  app.post("/api/challenge/", (req, res) => {
     console.log(res);
-    db.Watched.create({
+    db.Challenge.create({
       userId: req.user.id,
       movieId: req.body.movieId    
     }).then((res) => {
