@@ -9,20 +9,16 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true
   });
 
-  Challenge.associate = function(models) {
+  Challenge.associate = function (models) {
 
-    // Challenge contain a reference to a movie
-    Challenge.belongsTo(models.Movie, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    // Challenge belong to a User model
     Challenge.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "userId"
     });
+
+    Challenge.belongsTo(models.Movie, {
+      foreignKey: "movieId"
+    });
+
   };
 
   return Challenge;

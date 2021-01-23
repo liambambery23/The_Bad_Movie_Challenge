@@ -19,14 +19,5 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true
   });
 
-  Movie.associate = function(models) {
-    Movie.hasMany(models.Challenge, {
-      onDelete: "cascade"
-    });
-    Movie.hasMany(models.Watched, {
-      onDelete: "cascade"
-    });
-  };
-
   return Movie;
 };
