@@ -4,11 +4,14 @@
 const db = require("../models/");
 
 module.exports = function (app) {
-  app.get("/api/watched/", (req, res) => {
-    //this is just to shut the linter up
-    console.log(db);
-    console.log(req);
+  app.post("/api/watched/", (req, res) => {
     console.log(res);
+    db.Watched.create({
+        userId: req.user.id,
+        movieId: req.body.movieId    
+    }).then((res) => {
+        console.log(res);
+    }) 
   });
 };
 
