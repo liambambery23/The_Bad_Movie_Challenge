@@ -16,3 +16,15 @@ $(".search-btn").click((event) => {
     }
   );
 });
+
+//put and delete request
+$(".towatch").click((event) => {
+  event.preventDefault();
+
+})
+
+$(".tochallenge").click((event) => {
+  event.preventDefault();
+  
+})
+//jquery for buttons  
