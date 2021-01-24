@@ -27,6 +27,25 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/user/ondeck", async (req, res) => {
+    console.log("API user on deck movie update to: " + req.body.movieId);
+    const movieOnDeckId = req.body.movieId === "null" ? null : req.body.movieId;
+    const user = req.user.id;
+    await db.User.update(
+      {
+        movieOnDeckId: movieOnDeckId
+      },
+      {
+        where: {
+          id: user
+        }
+      }
+    ).then(() => {
+      console.log("Set user on deck");
+    });
+    res.json({});
+  });
+
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();

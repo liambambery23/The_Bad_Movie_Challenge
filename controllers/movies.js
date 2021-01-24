@@ -84,8 +84,8 @@ async function addToMovieTable(movie, user) {
             id: user
           }
         }
-      ).then((result) => {
-        console.log("Updated "+ result + " rows");
+      ).then(() => {
+        console.log("Movie was added to movie table");
       });
     });
   } else {

@@ -15,30 +15,42 @@ $(".search-btn").click((event) => {
     }
   );
 });
+
 //put and delete request
 $("#toWatched").click((event) => {
   event.preventDefault();
   const movieId = $("#onDeck").data("movieid");
   $.ajax("/api/watched", {
     type: "POST",
-    data: {movieId}
-  }).then(
-    () => {
+    data: { movieId }
+  }).then(() => {
+    const movieId = "null";
+    $.ajax("/api/user/ondeck", {
+      type: "POST",
+      data: { movieId }
+    }).then(() => {
       location.assign("/");
-    }
-  );
+    });
+  }).catch((err)=>{
+    console.log(err);
+  });
 });
 
 $("#toChallenged").click((event) => {
   event.preventDefault();
   const movieId = $("#onDeck").data("movieid");
-  $.ajax("/api/challenged", {
+  $.ajax("/api/challenge", {
     type: "POST",
-    data: {movieId}
-  }).then(
-    () => {
+    data: { movieId }
+  }).then(() => {
+    const movieId = "null";
+    $.ajax("/api/user/ondeck", {
+      type: "POST",
+      data: { movieId }
+    }).then(() => {
       location.assign("/");
-    }
-  );
+    });
+  }).catch((err)=>{
+    console.log(err);
+  });
 });
-//jquery for buttons  

@@ -29,7 +29,8 @@ module.exports = function (sequelize, DataTypes) {
   User.associate = function (models) {
 
     User.belongsTo(models.Movie, {
-      foreignKey: "movieOnDeckId"
+      foreignKey: "movieOnDeckId",
+      allowNull: true
     });
 
   };
