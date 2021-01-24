@@ -1,5 +1,3 @@
-<h1>Index</h1>
-
 {{!-- Search bar --}}
 <div class="row">
   <div class="search-container col-sm-12 col-md-12 col-lg-6">
@@ -39,8 +37,18 @@
     </button>
   </div>
 </div>
-
 {{/if}}
+
+{{#unless movie}}
+<div class="row">
+  <div class="media col-sm-12 col-md-10 col-lg-8" id="instructions">
+    <div class="media-body">
+      <h5 class="mt-0 pt-3 text-center">Let's get started!</h5>
+      <p class="instructions_pretty">Select a movie from your challenges list or search for a movie. The more cringy the movie the better! Challenged to a movie you really don't want to watch? Try declining the challenge and donating to charity instead!</p>
+    </div>
+  </div>
+</div>
+{{/unless}}
 
 {{!-- Movie Lists --}}
 <div class="row" id="watch-lists">
@@ -50,7 +58,7 @@
     </div>
     <ul class="list-group list-group-flush">
       {{#each watchedMovies}}
-        <li>{{title}}</li>
+        <li class="watched-list-item" data-movieid="{{id}}">{{title}}</li>
       {{/each}}
     </ul>
   </div>
@@ -60,7 +68,7 @@
     </div>
     <ul class="list-group list-group-flush">
       {{#each challengeMovies}}
-        <li>{{title}}</li>
+        <li class="challenge-list-item" data-movieid="{{id}}">{{title}}</li>
       {{/each}}
     </ul>
   </div>

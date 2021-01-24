@@ -26,11 +26,11 @@ module.exports = function (app) {
     res.json({});
   });
 
-  app.delete("/api/challenged/:id", (req) => {
+  app.delete("/api/challenged/:id", async (req, res) => {
     const movieId = req.params.id;
     const userId = req.user.id;
 
-    db.Challenge.destroy({
+    await db.Challenge.destroy({
       where: {
         userId: userId,
         movieId: movieId
@@ -38,6 +38,8 @@ module.exports = function (app) {
     }).then((res) => {
       console.log(res);
     });
+
+    res.json({});
   });
 
 };

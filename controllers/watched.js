@@ -29,18 +29,19 @@ module.exports = function (app) {
     res.json({});
   });
 
-  app.delete("/api/watched/:id", (req) => {
+  app.delete("/api/watched/:id", async (req, res) => {
     const movieId = req.params.id;
     const userId = req.user.id;
 
-    db.Watched.destroy({
+    await db.Watched.destroy({
       where: {
         userId: userId,
         movieId: movieId
       }
-    }).then((res) => {
-      console.log(res);
+    }).then(() => {
+      console.log("Watched movie deleted");
     });
+    res.json({});
   });
 
 };

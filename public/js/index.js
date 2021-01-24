@@ -1,3 +1,4 @@
+// Movie search
 $(".search-btn").click((event) => {
   event.preventDefault();
   const SearchVal = $("#search").val();
@@ -16,7 +17,7 @@ $(".search-btn").click((event) => {
   );
 });
 
-//put and delete request
+// Add movie on deck to watched list
 $("#toWatched").click((event) => {
   event.preventDefault();
   const movieId = $("#onDeck").data("movieid");
@@ -36,6 +37,7 @@ $("#toWatched").click((event) => {
   });
 });
 
+// Add movie on deck to challenge list
 $("#toChallenged").click((event) => {
   event.preventDefault();
   const movieId = $("#onDeck").data("movieid");
@@ -53,4 +55,42 @@ $("#toChallenged").click((event) => {
   }).catch((err)=>{
     console.log(err);
   });
+});
+
+$(".watched-list-item").click((event) => {
+  event.preventDefault();
+  const answer = confirm("Are you sure you want to remove this from your watched list?");
+  if(answer){
+    const movieId = $(event.target).data("movieid");
+    $.ajax("/api/watched/" + movieId, {
+      type: "DELETE"
+    }).then(() => {
+      $.ajax("/api/user/ondeck", {
+        type: "POST",
+        data: { movieId }
+      }).then(() => {
+        location.assign("/");
+      });
+    }).catch((err)=>{
+      console.log(err);
+    });
+  }
+});
+
+$(".challenge-list-item").click((event) => {
+  event.preventDefault();
+  const movieId = $(event.target).data("movieid");
+  $.ajax("/api/challenged/" + movieId, {
+    type: "DELETE"
+  }).then(() => {
+    $.ajax("/api/user/ondeck", {
+      type: "POST",
+      data: { movieId }
+    }).then(() => {
+      location.assign("/");
+    });
+  }).catch((err)=>{
+    console.log(err);
+  });
+
 });
