@@ -4,37 +4,72 @@ module.exports = function (app) {
 
   app.get("/", async (req, res) => {
     const scripts = [{ script: "/js/index.js" }];
+
     // If the user is not logged in send them to login
     if (!req.user) {
       res.redirect("/login");
     } else {
-      const userMovieOnDeck = await db.User.findOne({
+
+      console.log("*** Index loaded ***");
+
+      // Search for users movie on deck
+      const movieOnDeck = await db.User.findOne({
         where: {
           id: req.user.id
         },
         include: [db.Movie]
       }).then((result) => {
-        return result.dataValues.Movie;
+        if(result.dataValues.Movie){
+          return result.dataValues.Movie.dataValues;
+        }
+        return "";
       });
-      // If the user has a movie on deck send that object to the view
-      if(userMovieOnDeck){
-        const movieOnDeck = {
-          id: userMovieOnDeck.id,
-          title: userMovieOnDeck.title,
-          posterPath: userMovieOnDeck.posterPath,
-          overview: userMovieOnDeck.overview
-        };
-        res.render("index",
-          {
-            scripts: scripts,
-            movie: movieOnDeck
-          });
-      } else {
-        res.render("index",
-          {
-            scripts: scripts
-          });
-      }
+
+      // Search for watched movies list
+      const watchedMoviesData = await db.Watched.findAll({
+        where: {
+          userId: req.user.id
+        },
+        include: [db.Movie]
+      }).then((result) => {
+        if(result){
+          return result;
+        }
+        return [];
+      });
+
+      // Get out the movies from the data
+      const watchedMovies = [];
+      watchedMoviesData.forEach(watchedMovie => {
+        watchedMovies.push(watchedMovie.Movie.dataValues);
+      });
+
+      // Search for challenge movies list
+      const challengeMoviesData = await db.Challenge.findAll({
+        where: {
+          userId: req.user.id
+        },
+        include: [db.Movie]
+      }).then((result) => {
+        if(result){
+          return result;
+        }
+        return [];
+      });
+
+      // Get out the movies from the data
+      const challengeMovies = [];
+      challengeMoviesData.forEach(challengeMovie => {
+        challengeMovies.push(challengeMovie.Movie.dataValues);
+      });
+
+      res.render("index",
+        {
+          scripts: scripts,
+          movie: movieOnDeck,
+          watchedMovies: watchedMovies,
+          challengeMovies: challengeMovies
+        });
     }
   });
 

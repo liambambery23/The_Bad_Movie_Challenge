@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "Bridgehouse22!",
-    "database": "bad_movie",
+    "password": "!F4ll3n3lite",
+    "database": "badmovie",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
