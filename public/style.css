@@ -20,6 +20,11 @@ Body {
 a {
     color:black;
 }
+
+.hide {
+    visibility: hidden;
+}
+
 .h1 {
     font-family: 'Staatliches', cursive;
 }

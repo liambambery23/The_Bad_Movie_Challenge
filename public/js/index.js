@@ -1,3 +1,5 @@
+// Displays Charity Donation link to the right of the index page 
+$("#charityDisp").removeClass("hide");
 // Movie search
 $(".search-btn").click((event) => {
   event.preventDefault();
@@ -94,3 +96,5 @@ $(".challenge-list-item").click((event) => {
   });
 
 });
+
+console.log("look at me now!");

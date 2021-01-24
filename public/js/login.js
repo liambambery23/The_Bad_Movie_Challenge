@@ -29,6 +29,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
+        $("#charityDisp").removeClass("hide");
         window.location.replace("/");
         // If there's an error, log the error
       })
