@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "!F4ll3n3lite",
-    "database": "badmovie",
+    "password": "password",
+    "database": "bad_movie_challenge",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
