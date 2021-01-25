@@ -3,14 +3,16 @@
 
 
 ## Table of Contents 
-* [Description](#Descritpion)
-* [User Story](#UserStory)
-* [Installation](#Installation)
-* [Usage](#Usage)
-* [Technologies](#Technologies)
-* [Contributors](#Contributors)
-* [License](#License)
-* [Contact Information](#ContactInfo)
+* [Description](#descritpion)
+* [User Story](#user-story)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Tests](#tests)
+* [Badges](#badges)
+* [Technologies](#technologies)
+* [Contributors](#contributors)
+* [License](#license)
+* [Contact Information](#contact-information)
 
 
 ## Description
@@ -19,13 +21,13 @@ A fundraising application where users watch poorly rated movies with the aim of 
 
 ## User Story
 AS A USER, WHEN: 
-- I put in my log in credentials, I taken to my profile 
-- I put a movie title search, I get back a movie poster that I can put into my watched or challenge list 
-- As I complete movies on my challenge list, I can click on Charity of the Month donation link to give my donation of choice 
+-- I put in my log in credentials, I taken to my profile 
+-- I put a movie title search, I get back a movie poster that I can put into my watched or challenge list 
+-- As I complete movies on my challenge list, I can click on Charity of the Month donation link to give my donation of choice 
 
 
 ## Installation 
-No installation is required to run application, just follow the [LiveLink](). 
+No installation is required to run application, just follow the [LiveLink](https://project22sample.herokuapp.com/login). <br/>
 For developer inquisitiveness, clone repo by running the following commad line in your terminal/git bash: 
 `git@github.com:ifeasome/The_Bad_Movie_Challenge.git`. 
 
@@ -33,12 +35,18 @@ To view repo, go to: [Application Repo](https://github.com/ifeasome/The_Bad_Movi
 
 
 ## Usage 
-A fun way to generate funds for charity. 
+An engaging way to generate funds for your favorite charity. 
+
 
 ## Tests 
 Install program as detailed here: [Installation](#Installation). 
-To view application walktrough, watch ![Demo]()
+To view application walktrough, watch [Demo](/public/assets/BadMovieChallenge.gif)
 
+
+## Badges 
+![JavaScripts](https://img.shields.io/badge/JavaScript-72.9%25-yellow)
+![Handlebars](https://img.shields.io/badge/Handlebars-20.5%25-orange)
+![CSS](https://img.shields.io/badge/CSS-6.6%25-blueviolet)<br/>
 
 
 ## Technologies  
@@ -59,7 +67,6 @@ To view application walktrough, watch ![Demo]()
 
 
 ## License
-
 ![License Badge](https://img.shields.io/badge/license-MIT-blue.svg) 
 </br>
 © 2021 Liam Bambery <br/>
@@ -70,11 +77,8 @@ To view application walktrough, watch ![Demo]()
 
 
 ## Contact Information 
-For questions, queries or anything at all, contact: 
+For questions, queries or anything at all, contact: <br/>
 
-[Liam Bambery](https://github.com/liambambery23) <br/>
-[Ryan Conran](https://github.com/ryan-conran) <br/>
-[Malik Jallah](https://github.com/mjallah) <br/>
-[Somelina Obiechina](https://github.com/ifeasome) <br/>
-[Spencer Rosio](https://github.com/detanracnier) <br/>
+The mentioned Github Profiles here: [Contributors](#contributors). 
+
 
